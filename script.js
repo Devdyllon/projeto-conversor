@@ -3,11 +3,12 @@ let select = document.getElementById("select-moedas")
 
 
 
-async function converterMoedas(){
+async function converterMoedas() {
 
     let moedas = await fetch("http://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL").then(function(resposta){
         return resposta.json()
     })
+
     let dolar = moedas.USDBRL.high
     let Euro = moedas.EURBRL.high
 
@@ -25,7 +26,7 @@ async function converterMoedas(){
     }
 
     
-    textoReal.innerHTML = (inputValorReais.toLocaleString("pt-br", { style: "currency", currency: "BRL" }))
+    textoReal.innerHTML = inputValorReais.toLocaleString("pt-br", { style: "currency", currency: "BRL" })
 }
 
 //Função para trocar moeda e bandeira
@@ -46,7 +47,9 @@ if (select.value === "Euro - €"){
     bandeiraMoedas.src = "./IMG/euro.png"
     
 }
+
 converterMoedas()
+
 }
 botao.addEventListener("click", converterMoedas)
 select.addEventListener("change",trocaDeMoeda)
