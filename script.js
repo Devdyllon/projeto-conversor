@@ -5,7 +5,7 @@ let select = document.getElementById("select-moedas")
 
 async function converterMoedas(){
 
-    let moedas = await fetch("http://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL").then(function(resposta){
+    let moedas = await fetch("http://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL").then(function(resposta){
         return resposta.json()
     })
     let dolar = moedas.USDBRL.high
